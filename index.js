@@ -61,12 +61,23 @@ function findByisbn(isbn){
   });
 }
 
+function modificarTituloByIsbn(isbn, Titulo, Autor){
+  Libro.findOneAndUpdate({isbn:isbn},
+    {Titulo:Titulo},function(err,documentos){
+    if (err) {
+      console.log(err);
+    }
+    console.log(documentos);
+  });
+}
 
 
 function main() {
   //nuevoLibro();
 //  nuevoLibroT();
-findByisbn("332313035X");
+//findByisbn("332313035X");
+modificarTituloByIsbn("332313035X", "Dan Vinci");
+
 }
 
 main(); // ejecutamos main
